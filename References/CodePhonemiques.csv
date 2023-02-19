@@ -1,0 +1,43 @@
+code;type;lettres;exemples;son;api
+a;Voyelle;a,à,e;bat, plat;A;/a/
+i;Voyelle;i,y;lit, émis;I;/i/
+y;Voyelle;u,û;lu;U;/y/
+u;Voyelle;ou,où;roue;Ou;/u/
+o;Voyelle;eau,au,o;peau, mot;o (fermé);/o/
+O;Voyelle;o;éloge, fort;o (ouvert);/?/
+e;Voyelle;ez,er,es,et,é;été;e-fermé;/e/
+E;Voyelle;ai,es,ê,è,ei,e;paire, treize;e-ouvert;/?/
+°;Voyelle;e;abordera;schwa élidable;/?/
+2;Voyelle;eu,e;deux;eu-fermé;/ø/
+9;Voyelle;œu,eu;œuf, peur;eu-ouvert;/œ/
+5;Voyelle;ien,ain,in,en;cinq, linge;in (voy. Nasale);/?/ 
+1;Voyelle;un,um;un, parfum;un (voy. nasale);/œ  /
+@;Voyelle;an,en,em;ange;an (voy. nasale);/  /
+§;Voyelle;on,om;on, savon;on (voy. nasale);/? /
+3;Voyelle;;parvenu;schwa non élidable;
+jo;Semi-Voyelle;o;a priori;;
+j;Semi-Voyelle;yi,ll,i,y;yeux, paille;y (semi- voyelle);/j/
+8;Semi-Voyelle;u;huit, lui;ui (semi- voyelle);/?/
+w5;Semi-Voyelle;oin;;;
+wa;Semi-Voyelle;oi;;;
+w;Semi-Voyelle;ou;oui, nouer;w (semi- voyelle);/w/
+dZ;Consonne;g;a giorno;;
+p;Consonne;p;père, soupe;p (occlusive);/p/
+b;Consonne;b;bon, robe;b (occlusive);/b/
+t;Consonne;t;terre, vite;t (occlusive);/t/
+d;Consonne;d;dans, aide;d (occlusive);/d/
+k;Consonne;k,qu,c;carré, laque;k (occlusive);/k/
+g;Consonne;gu,g;gare, bague;g (occlusive);/g/
+f;Consonne;f;feu, neuf;f (fricative);/f/
+v;Consonne;v;vous, rêve;v (fricative);/v/
+s;Consonne;s,t,ç,c;sale, dessous;s (fricative);/s/
+z;Consonne;z,s;zéro, maison;z (fricative);/z/
+S;Consonne;ch;chat, tâche;ch (fricative);/?/
+Z;Consonne;g,j;gilet, mijoter;ge (fricative);/?/
+m;Consonne;m;main, femme;m (cons. nasale);/m/
+n;Consonne;n;nous, tonne;n (cons. nasale);/n/
+N;Consonne;gn;agneau, vigne;gn (c. nasale palat.);
+l;Consonne;l;lent, sol;l (liquide);/l/
+R;Consonne;r;rue, venir;R;/?/
+x;Consonne;j;jota;jota (emprunt espagn.);
+G;Consonne;ng;camping;ng (emprunt angl.);
