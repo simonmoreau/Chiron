@@ -52,24 +52,16 @@ namespace Chiron
                 codePhonemiques = csv.GetRecords<CodePhonemique>().ToList();
             }
 
-            // foreach (Mot mot in mots)
+            foreach (Mot mot in mots)
+            {
+                mot.ProcessWord(codePhonemiques);
+            }
+
+            // Parallel.ForEach(mots, mot =>
             // {
             //     mot.GetWordWithoutVoidLetters(codePhonemiques);
-            // }
+            // });
 
-            Parallel.ForEach(mots, mot =>
-            {
-                mot.GetWordWithoutVoidLetters(codePhonemiques);
-            });
-
-            // List<Task> processWordTask = new List<Task>();
-
-            // foreach (Mot mot in mots)
-            // {
-            //     processWordTask.Add(Task.Run(() => mot.GetWordWithoutVoidLetters(codePhonemiques)));
-            // }
-
-            // Task.WhenAll(processWordTask);
 
             using (var writer = new StreamWriter($"{referrenceFolder}\\Lexique383-full.tsv"))
             using (var csv = new CsvWriter(writer, config))
