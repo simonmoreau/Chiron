@@ -5,7 +5,8 @@ y;Voyelle;u,û;lu;U;/y/
 u;Voyelle;ou,où;roue;Ou;/u/
 o;Voyelle;eau,au,o;peau, mot;o (fermé);/o/
 O;Voyelle;o;éloge, fort;o (ouvert);/?/
-e;Voyelle;ez,er,es,et,é;été;e-fermé;/e/
+e;Voyelle;ez,er,es,et,ai,é;été;e-fermé;/e/
+Ej;Voyelle;ay;;;
 E;Voyelle;ai,es,ê,è,ei,e;paire, treize;e-ouvert;/?/
 °;Voyelle;e;abordera;schwa élidable;/?/
 2;Voyelle;eu,e;deux;eu-fermé;/ø/
@@ -18,6 +19,7 @@ E;Voyelle;ai,es,ê,è,ei,e;paire, treize;e-ouvert;/?/
 jo;Semi-Voyelle;o;a priori;;
 j;Semi-Voyelle;yi,ll,i,y;yeux, paille;y (semi- voyelle);/j/
 8;Semi-Voyelle;u;huit, lui;ui (semi- voyelle);/?/
+waj;Semi-Voyelle;oy;;;
 w5;Semi-Voyelle;oin;;;
 wa;Semi-Voyelle;oi;;;
 w;Semi-Voyelle;ou;oui, nouer;w (semi- voyelle);/w/

@@ -45,28 +45,33 @@ namespace Chiron
                 csv.Context.RegisterClassMap<MotMap>();
                 mots = csv.GetRecords<Mot>().ToList();
             }
-            
+
             using (var reader = new StreamReader($"{referrenceFolder}\\CodePhonemiques.csv", Encoding.GetEncoding("iso-8859-1")))
             using (var csv = new CsvReader(reader, new CultureInfo("fr-FR")))
             {
                 codePhonemiques = csv.GetRecords<CodePhonemique>().ToList();
             }
 
-            List<Task> processWordTask = new List<Task>();
+            // foreach (Mot mot in mots)
+            // {
+            //     mot.GetWordWithoutVoidLetters(codePhonemiques);
+            // }
 
-            foreach (Mot mot in mots)
+            Parallel.ForEach(mots, mot =>
             {
-                mot.phonosyll = mot.GetWordWithoutVoidLetters(codePhonemiques);
-            }
+                mot.GetWordWithoutVoidLetters(codePhonemiques);
+            });
+
+            // List<Task> processWordTask = new List<Task>();
 
             // foreach (Mot mot in mots)
             // {
-            //     processWordTask.Add(Task.Run(() => mot.phonosyll = mot.GetWordWithoutVoidLetters(codePhonemiques)));
+            //     processWordTask.Add(Task.Run(() => mot.GetWordWithoutVoidLetters(codePhonemiques)));
             // }
 
             // Task.WhenAll(processWordTask);
-            
-            using (var writer  = new StreamWriter($"{referrenceFolder}\\Lexique383-full.tsv"))
+
+            using (var writer = new StreamWriter($"{referrenceFolder}\\Lexique383-full.tsv"))
             using (var csv = new CsvWriter(writer, config))
             {
                 csv.WriteRecords(mots);

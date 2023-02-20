@@ -8,11 +8,15 @@ namespace Chiron.Models
 {
     public class Mot : BaseMot
     {
-        public string phonosyll { get; set; }
+        private string _phonsyll;
+        public string phonosyll { 
+            get {return _phonsyll;} 
+        }
+
         public Mot() : base()
         {
         }
-        public string GetWordWithoutVoidLetters(List<CodePhonemique> codePhonemiques)
+        public void GetWordWithoutVoidLetters(List<CodePhonemique> codePhonemiques)
         {
             if (Ortho == "de")
             {
@@ -68,8 +72,7 @@ namespace Chiron.Models
                 }
             }
 
-            return wordWithoutVoidLetters;
-
+            _phonsyll = wordWithoutVoidLetters;
         }
     }
 
