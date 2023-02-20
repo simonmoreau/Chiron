@@ -5,6 +5,15 @@ namespace Chiron.Models
 {
     public class CodePhonemique
     {
+        public CodePhonemique()
+        {
+            code = "";
+            type = "";
+            lettres = "";
+            exemples = "";
+            son = "";
+            api = "";
+        }
         [Name("code")]
         public string code { get; set; }
 

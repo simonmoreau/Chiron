@@ -26,13 +26,12 @@ namespace Chiron.Models
                 Console.WriteLine(Ortho);
             }
 
-            string wordWithoutVoidLetters = "";
             int rankInPhon = 0;
             int rankInOrth = 0;
 
             List<int> syllableRanks = new List<int>();
             int rankInOrthoSyll = 0;
-            while (rankInOrthoSyll < OrthoSyll.Length)
+            while (rankInOrthoSyll < OrthoSyll?.Length)
             {
                 if (OrthoSyll.Substring(rankInOrthoSyll).StartsWith("-"))
                 {
@@ -42,12 +41,12 @@ namespace Chiron.Models
             }
 
             int syllableId = 0;
-            while (rankInPhon < Phon.Length)
+            while (rankInPhon < Phon?.Length)
             {
 
                 foreach (CodePhonemique codePhonemique in codePhonemiques)
                 {
-                    if (Phon.Substring(rankInPhon).StartsWith(codePhonemique.code))
+                    if (Phon.Substring(rankInPhon).StartsWith(codePhonemique?.code))
                     {
                         rankInPhon += codePhonemique.code.Length;
                         string[] letters = codePhonemique.lettres.Split(",");

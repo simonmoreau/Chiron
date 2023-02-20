@@ -6,22 +6,22 @@ namespace Chiron.Models
     public class BaseMot
     {
         [Name("ortho")]
-        public string Ortho { get; set; }
+        public string? Ortho { get; set; }
 
         [Name("phon")]
-        public string Phon { get; set; }
+        public string? Phon { get; set; }
 
         [Name("lemme")]
-        public string Lemme { get; set; }
+        public string? Lemme { get; set; }
 
         [Name("cgram")]
-        public string Cgram { get; set; }
+        public string? Cgram { get; set; }
 
         [Name("genre")]
-        public string Genre { get; set; }
+        public string? Genre { get; set; }
 
         [Name("nombre")]
-        public string Nombre { get; set; }
+        public string? Nombre { get; set; }
 
         [Name("freqlemfilms2")]
         public double? FreqLemFilms2 { get; set; }
@@ -36,7 +36,7 @@ namespace Chiron.Models
         public double? FreqLivres { get; set; }
 
         [Name("infover")]
-        public string Infover { get; set; }
+        public string? Infover { get; set; }
 
         [Name("nbhomogr")]
         public int? NbHomogr { get; set; }
@@ -54,10 +54,10 @@ namespace Chiron.Models
         public int? NbPhons { get; set; }
 
         [Name("cvcv")]
-        public string CVCV { get; set; }
+        public string? CVCV { get; set; }
 
         [Name("p_cvcv")]
-        public string PCVCVC { get; set; }
+        public string? PCVCVC { get; set; }
 
         [Name("voisorth")]
         public int? VoisOrth { get; set; }
@@ -72,31 +72,31 @@ namespace Chiron.Models
         public int? PuPhon { get; set; }
 
         [Name("syll")]
-        public string Syll { get; set; }
+        public string? Syll { get; set; }
 
         [Name("nbsyll")]
         public int? NbSyll { get; set; }
 
         [Name("cv-cv")]
-        public string CVCVSyl { get; set; }
+        public string? CVCVSyl { get; set; }
 
         [Name("orthrenv")]
-        public string OrthRenv { get; set; }
+        public string? OrthRenv { get; set; }
 
         [Name("phonrenv")]
-        public string PhonRenv { get; set; }
+        public string? PhonRenv { get; set; }
 
         [Name("orthosyll")]
-        public string OrthoSyll { get; set; }
+        public string? OrthoSyll { get; set; }
 
         [Name("cgramortho")]
-        public string CgramOrtho { get; set; }
+        public string? CgramOrtho { get; set; }
 
         [Name("deflem")]
-        public string Deflem { get; set; }
+        public string? Deflem { get; set; }
 
         [Name("defobs")]
-        public string DefObs { get; set; }
+        public string? DefObs { get; set; }
 
         [Name("old20")]
         public double? Old20 { get; set; }
@@ -105,14 +105,14 @@ namespace Chiron.Models
         public double? Pld20 { get; set; }
 
         [Name("morphoder")]
-        public string Morphoder { get; set; }
+        public string? Morphoder { get; set; }
 
         [Name("nbmorph")]
         public int? NbMorph { get; set; }
 
         public override string ToString()
         {
-            return Ortho;
+            return Ortho ?? "";
         }
     }
 }
