@@ -27,10 +27,13 @@ namespace Chiron
 
             List<CodePhonemique> codePhonemiques = new List<CodePhonemique>();
 
-            using (var reader = new StreamReader($"{referrenceFolder}\\CodePhonemiques.csv", Encoding.GetEncoding("iso-8859-1")))
-            using (var csv = new CsvReader(reader, new CultureInfo("fr-FR")))
+            using (FileStream fileStream = new FileStream($"{referrenceFolder}\\CodePhonemiques.csv", FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+            using (StreamReader reader = new StreamReader(fileStream, Encoding.GetEncoding("iso-8859-1")))
             {
-                codePhonemiques = csv.GetRecords<CodePhonemique>().ToList();
+                using (CsvReader csv = new CsvReader(reader, new CultureInfo("fr-FR")))
+                {
+                    codePhonemiques = csv.GetRecords<CodePhonemique>().ToList();
+                }
             }
 
             foreach (Mot mot in mots)
