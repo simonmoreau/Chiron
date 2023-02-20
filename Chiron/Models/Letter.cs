@@ -12,5 +12,10 @@ namespace Chiron.Models
         public string Text {get;set;}
         public bool IsSilent {get;set;}
         public int SyllableId {get;set;}
+
+        public override string ToString()
+        {
+            return $"{Text}({SyllableId.ToString()})";
+        }
     }
 }

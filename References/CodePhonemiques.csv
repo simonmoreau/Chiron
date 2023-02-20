@@ -7,15 +7,17 @@ o;Voyelle;eau,au,o;peau, mot;o (fermé);/o/
 O;Voyelle;o;éloge, fort;o (ouvert);/?/
 e;Voyelle;ez,er,es,et,ai,é;été;e-fermé;/e/
 Ej;Voyelle;ay;;;
+Es;Semi-Voyelle;es;presque;;
 E;Voyelle;ai,es,ê,è,ei,e;paire, treize;e-ouvert;/?/
 °;Voyelle;e;abordera;schwa élidable;/?/
 2;Voyelle;eu,e;deux;eu-fermé;/ø/
 9;Voyelle;œu,eu;œuf, peur;eu-ouvert;/œ/
-5;Voyelle;ien,ain,in,en;cinq, linge;in (voy. Nasale);/?/ 
+5;Voyelle;ien,ain,im,in,en;cinq, linge;in (voy. Nasale);/?/ 
 1;Voyelle;un,um;un, parfum;un (voy. nasale);/œ  /
 @;Voyelle;an,en,em;ange;an (voy. nasale);/  /
 §;Voyelle;on,om;on, savon;on (voy. nasale);/? /
 3;Voyelle;;parvenu;schwa non élidable;
+jE;Semi-Voyelle;iè;pièce;;
 jo;Semi-Voyelle;o;a priori;;
 j;Semi-Voyelle;yi,ll,i,y;yeux, paille;y (semi- voyelle);/j/
 8;Semi-Voyelle;u;huit, lui;ui (semi- voyelle);/?/
@@ -28,7 +30,7 @@ p;Consonne;p;père, soupe;p (occlusive);/p/
 b;Consonne;b;bon, robe;b (occlusive);/b/
 t;Consonne;t;terre, vite;t (occlusive);/t/
 d;Consonne;d;dans, aide;d (occlusive);/d/
-k;Consonne;k,qu,c;carré, laque;k (occlusive);/k/
+k;Consonne;qu,k,c;carré, laque;k (occlusive);/k/
 g;Consonne;gu,g;gare, bague;g (occlusive);/g/
 f;Consonne;f;feu, neuf;f (fricative);/f/
 v;Consonne;v;vous, rêve;v (fricative);/v/

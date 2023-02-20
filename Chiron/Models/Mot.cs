@@ -21,7 +21,7 @@ namespace Chiron.Models
         }
         public void ProcessWord(List<CodePhonemique> codePhonemiques)
         {
-            if (Ortho == "comme")
+            if (Ortho == "presque")
             {
                 Console.WriteLine(Ortho);
             }
@@ -109,14 +109,14 @@ namespace Chiron.Models
             int previousSyllabeId = 0;
             foreach (Letter letter in Letters)
             {
-                if (!letter.IsSilent)
-                {
-                    wordWithoutSilentLetters = wordWithoutSilentLetters + letter.Text;
-                }
-
                 if (letter.SyllableId != previousSyllabeId)
                 {
                     wordWithoutSilentLetters = wordWithoutSilentLetters + "-";
+                }
+
+                if (!letter.IsSilent)
+                {
+                    wordWithoutSilentLetters = wordWithoutSilentLetters + letter.Text;
                 }
 
                 previousSyllabeId = letter.SyllableId;
