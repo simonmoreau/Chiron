@@ -10,9 +10,10 @@ namespace Chiron
     {
         static void Main(string[] args)
         {
+            string referrenceFolder = @"C:\Users\smoreau\Github\Divers\Chiron\References";
             List<Phoneme> phonemes = new List<Phoneme>();
 
-            using (FileStream fileStream = new FileStream(@"..\References\Phonemes.csv", FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+            using (FileStream fileStream = new FileStream($"{referrenceFolder}\\Phonemes.csv", FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
             using (StreamReader reader = new StreamReader(fileStream, Encoding.GetEncoding("iso-8859-1")))
             {
                 using (CsvReader csv = new CsvReader(reader, new CultureInfo("fr-FR")))
@@ -38,14 +39,14 @@ namespace Chiron
                 Delimiter = "\t",
             };
 
-            using (var reader = new StreamReader(@"..\References\Lexique383.tsv", Encoding.GetEncoding("UTF-8")))
+            using (var reader = new StreamReader($"{referrenceFolder}\\Lexique383.tsv", Encoding.GetEncoding("UTF-8")))
             using (var csv = new CsvReader(reader, config))
             {
                 csv.Context.RegisterClassMap<MotMap>();
                 mots = csv.GetRecords<Mot>().ToList();
             }
             
-            using (var reader = new StreamReader(@"..\References\CodePhonemiques.csv", Encoding.GetEncoding("iso-8859-1")))
+            using (var reader = new StreamReader($"{referrenceFolder}\\CodePhonemiques.csv", Encoding.GetEncoding("iso-8859-1")))
             using (var csv = new CsvReader(reader, new CultureInfo("fr-FR")))
             {
                 codePhonemiques = csv.GetRecords<CodePhonemique>().ToList();
@@ -55,12 +56,17 @@ namespace Chiron
 
             foreach (Mot mot in mots)
             {
-                processWordTask.Add(Task.Run(() => mot.phonosyll = mot.GetWordWithoutVoidLetters(codePhonemiques)));
+                mot.phonosyll = mot.GetWordWithoutVoidLetters(codePhonemiques);
             }
 
-            Task.WhenAll(processWordTask);
+            // foreach (Mot mot in mots)
+            // {
+            //     processWordTask.Add(Task.Run(() => mot.phonosyll = mot.GetWordWithoutVoidLetters(codePhonemiques)));
+            // }
+
+            // Task.WhenAll(processWordTask);
             
-            using (var writer  = new StreamWriter(@"..\References\Lexique383-full.tsv"))
+            using (var writer  = new StreamWriter($"{referrenceFolder}\\Lexique383-full.tsv"))
             using (var csv = new CsvWriter(writer, config))
             {
                 csv.WriteRecords(mots);

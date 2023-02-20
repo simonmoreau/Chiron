@@ -14,6 +14,10 @@ namespace Chiron.Models
         }
         public string GetWordWithoutVoidLetters(List<CodePhonemique> codePhonemiques)
         {
+            if (Ortho == "de")
+            {
+                Console.WriteLine(Ortho);
+            }
             string wordWithoutVoidLetters = "";
             int rankInPhon = 0;
             int rankInOrth = 0;
