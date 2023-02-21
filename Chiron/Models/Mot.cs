@@ -22,7 +22,7 @@ namespace Chiron.Models
         }
         public void ProcessWord(List<CodePhonemique> codePhonemiques)
         {
-            if (Ortho == "destin")
+            if (Ortho == "fille")
             {
                 Console.WriteLine(Ortho);
             }
@@ -111,15 +111,13 @@ namespace Chiron.Models
         {
             if (Ortho.EndsWith(endString) && Letters[Letters.Count - rankFromLast].IsSilent)
             {
-                string[] voyelles = { "a", "i", "u", "o" };
+                string[] voyelles = { "a", "i", "u", "o","é","ê","è" };
                 if (!voyelles.Contains(Letters[Letters.Count - rankFromLast - 1].Text))
                 {
                     Letters[Letters.Count - rankFromLast].IsSilent = false;
                     Error = "EndingE";
                 }
-
             }
-
         }
 
         private List<int> GetSyllableRanks()
