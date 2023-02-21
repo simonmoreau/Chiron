@@ -65,7 +65,7 @@ namespace Chiron
 
             List<Mot> mots = LoadLexicon("Lexique383");
 
-            mots = mots.OrderByDescending(m => m.FreqLivres).Take(2000).ToList();
+            mots = mots.OrderByDescending(m => m.FreqLivres).Take(10000).ToList();
 
             CsvConfiguration config = new CsvConfiguration(CultureInfo.InvariantCulture)
             {

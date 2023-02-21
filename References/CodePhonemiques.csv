@@ -1,38 +1,40 @@
 code;type;lettres;exemples;son;api
 a;Voyelle;a,à,e,â;bat, plat;A;/a/
-ij;Voyelle;i;;;
-i;Voyelle;i,y,î;lit, émis;I;/i/
+ij;Voyelle;i,y;appuyé;;
+i;Voyelle;ee,ea,i,y,î,ï;lit, émis;I;/i/
 y;Voyelle;u,û;lu;U;/y/
-u;Voyelle;ou,où,oû;roue;Ou;/u/
+u;Voyelle;ou,où,oû,ow,oo;roue;Ou;/u/
 o;Voyelle;eau,au,o,ô;peau, mot;o (fermé);/o/
-O;Voyelle;o,ô;éloge, fort;o (ouvert);/?/
+O;Voyelle;o,ô,u,a;éloge, fort;o (ouvert);/?/
 es;Semi-Voyelle;es;destin;;
 ej;Voyelle;ay;essayer;;
 ei;Voyelle;ay;pays;;
-e;Voyelle;ez,er,es,et,ai,ed,eh,ef,é,ê;été;e-fermé;/e/
+e;Voyelle;ez,er,es,et,ai,aî,ed,eh,ef,el,é,ê,e;été;e-fermé;/e/
 Ej;Voyelle;eil,ay;;;
-Es;Semi-Voyelle;es;presque;;
+Es;Semi-Voyelle;es,s;presque;;
 E;Voyelle;ai,aî,es,ê,è,ei,e,é;paire, treize;e-ouvert;/?/
 °;Voyelle;ai,on,e;abordera;schwa élidable;/?/
 2;Voyelle;eu,e;deux;eu-fermé;/ø/
-9;Voyelle;oeu,eu,oe;œuf, peur;eu-ouvert;/œ/
+9j;Voyelle;eil;orgueil;;
 9R;Voyelle;er;drifter;;
-5;Voyelle;ien,ain,im,in,en;cinq, linge;in (voy. Nasale);/?/ 
+9;Voyelle;oeu,eu,oe;œuf, peur;eu-ouvert;/œ/
+5;Voyelle;ien,ain,im,in,en,yn,ym,în;cinq, linge;in (voy. Nasale);/?/ 
 1;Voyelle;un,um;un, parfum;un (voy. nasale);/œ  /
 @;Voyelle;an,en,em,am;ange;an (voy. nasale);/  /
 §;Voyelle;on,om;on, savon;on (voy. nasale);/? /
 3;Voyelle;;parvenu;schwa non élidable;
 jE;Semi-Voyelle;iè;pièce;;
 jo;Semi-Voyelle;o;a priori;;
-j;Semi-Voyelle;yi,ll,il,i,y;yeux, paille;y (semi- voyelle);/j/
+j;Semi-Voyelle;yi,ll,il,i,y,ï;yeux, paille;y (semi- voyelle);/j/
 8;Semi-Voyelle;u;huit, lui;ui (semi- voyelle);/?/
 waj;Semi-Voyelle;oy;;;
 w5;Semi-Voyelle;oin;;;
-wa;Semi-Voyelle;oi,oî;;;
-w;Semi-Voyelle;ou;oui, nouer;w (semi- voyelle);/w/
-dZ;Consonne;g;a giorno;;
+wa;Semi-Voyelle;oi,oî,oê,a;;;
+w;Semi-Voyelle;ou,w;oui, nouer;w (semi- voyelle);/w/
+dZ;Consonne;g,j;a giorno;;
 p;Consonne;p,b;père, soupe;p (occlusive);/p/
 b;Consonne;b;bon, robe;b (occlusive);/b/
+tS;Consonne;ch;sandwich;;
 t;Consonne;t;terre, vite;t (occlusive);/t/
 d;Consonne;d;dans, aide;d (occlusive);/d/
 ks;Consonne;x;expliquer;;
@@ -41,10 +43,10 @@ gz;Consonne;x;exemple;;
 gy;Semi-Voyelle;gu;figure;;
 g;Consonne;gu,g,c;gare, bague;g (occlusive);/g/
 f;Consonne;f,ph;feu, neuf;f (fricative);/f/
-v;Consonne;v;vous, rêve;v (fricative);/v/
+v;Consonne;v,w;vous, rêve;v (fricative);/v/
 s;Consonne;s,t,ç,c,x;sale, dessous;s (fricative);/s/
 z;Consonne;z,s,x;zéro, maison;z (fricative);/z/
-S;Consonne;ch;chat, tâche;ch (fricative);/?/
+S;Consonne;ch,sh;chat, tâche;ch (fricative);/?/
 Z;Consonne;g,j;gilet, mijoter;ge (fricative);/?/
 m;Consonne;m;main, femme;m (cons. nasale);/m/
 n;Consonne;n;nous, tonne;n (cons. nasale);/n/
