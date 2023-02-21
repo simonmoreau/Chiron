@@ -13,7 +13,7 @@ namespace Chiron.Models
         {
             get { return _phonsyll; }
         }
-        public string Error {get;set;}
+        public string Error { get; set; }
 
         public List<Letter> Letters { get; set; }
         public Mot() : base()
@@ -101,12 +101,25 @@ namespace Chiron.Models
                 }
             }
 
-            if (Ortho.Last() == 'e')
+            CheckEndingE("es", 2);
+            CheckEndingE("e", 1);
+
+            _phonsyll = WordWithoutSilentLetters();
+        }
+
+        private void CheckEndingE(string endString, int rankFromLast)
+        {
+            if (Ortho.EndsWith(endString) && Letters[Letters.Count - rankFromLast].IsSilent)
             {
+                string[] voyelles = { "a", "i", "u", "o" };
+                if (!voyelles.Contains(Letters[Letters.Count - rankFromLast - 1].Text))
+                {
+                    Letters[Letters.Count - rankFromLast].IsSilent = false;
+                    Error = "EndingE";
+                }
 
             }
 
-            _phonsyll = WordWithoutSilentLetters();
         }
 
         private List<int> GetSyllableRanks()
