@@ -13,6 +13,7 @@ namespace Chiron.Models
         {
             get { return _phonsyll; }
         }
+        public string Error {get;set;}
 
         public List<Letter> Letters { get; set; }
         public Mot() : base()
@@ -21,68 +22,73 @@ namespace Chiron.Models
         }
         public void ProcessWord(List<CodePhonemique> codePhonemiques)
         {
-            if (Ortho == "presque")
+            if (Ortho == "destin")
             {
                 Console.WriteLine(Ortho);
             }
 
             int rankInPhon = 0;
             int rankInOrth = 0;
-
-            List<int> syllableRanks = new List<int>();
-            int rankInOrthoSyll = 0;
-            while (rankInOrthoSyll < OrthoSyll?.Length)
-            {
-                if (OrthoSyll.Substring(rankInOrthoSyll).StartsWith("-"))
-                {
-                    syllableRanks.Add(rankInOrthoSyll - syllableRanks.Count);
-                }
-                rankInOrthoSyll++;
-            }
+            List<int> syllableRanks = GetSyllableRanks();
 
             int syllableId = 0;
+            int errorCheck = 0;
             while (rankInPhon < Phon?.Length)
             {
-
-                foreach (CodePhonemique codePhonemique in codePhonemiques)
+                if (errorCheck > 100)
                 {
-                    if (Phon.Substring(rankInPhon).StartsWith(codePhonemique?.code))
+                    Error = "Loop";
+                    break;
+                }
+                errorCheck++;
+
+                List<CodePhonemique> possibleCodePhonemiques = codePhonemiques.Where(c => Phon.Substring(rankInPhon).StartsWith(c?.code)).ToList();
+
+                if (possibleCodePhonemiques.Count == 0)
+                {
+                    rankInPhon++;
+                    continue;
+                }
+
+                List<string> beginWith = new List<string>();
+
+                foreach (CodePhonemique possibleCodePhonemique in possibleCodePhonemiques)
+                {
+                    string[] letters = possibleCodePhonemique.lettres.Split(",");
+                    beginWith = letters.Where(l => Ortho.Substring(rankInOrth).StartsWith(l)).ToList();
+
+                    if (beginWith.Count() > 0)
                     {
-                        rankInPhon += codePhonemique.code.Length;
-                        string[] letters = codePhonemique.lettres.Split(",");
+                        rankInPhon += possibleCodePhonemique.code.Length;
+                        break;
+                    }
+                }
 
-                        while (rankInOrth < Ortho.Length)
+                if (rankInOrth < Ortho.Length)
+                {
+                    if (beginWith.Count() > 0)
+                    {
+                        foreach (char letter in beginWith.First())
                         {
-                            List<string> beginWith = letters.Where(l => Ortho.Substring(rankInOrth).StartsWith(l)).ToList();
-                            if (beginWith.Count() > 0)
-                            {
-                                foreach (char letter in beginWith.First())
-                                {
-                                    Letters.Add(new Letter(letter.ToString(), false, syllableId));
-                                }
-
-                                rankInOrth += beginWith.First().Length;
-
-                                if (syllableRanks.Contains(Letters.Count))
-                                {
-                                    syllableId++;
-                                }
-
-                                break;
-                            }
-                            else
-                            {
-                                Letters.Add(new Letter(Ortho.Substring(rankInOrth, 1), true, syllableId));
-                                rankInOrth += 1;
-
-                                if (syllableRanks.Contains(Letters.Count))
-                                {
-                                    syllableId++;
-                                }
-                            }
+                            Letters.Add(new Letter(letter.ToString(), false, syllableId));
                         }
 
-                        break;
+                        rankInOrth += beginWith.First().Length;
+
+                        if (syllableRanks.Contains(Letters.Count))
+                        {
+                            syllableId++;
+                        }
+                    }
+                    else
+                    {
+                        Letters.Add(new Letter(Ortho.Substring(rankInOrth, 1), true, syllableId));
+                        rankInOrth += 1;
+
+                        if (syllableRanks.Contains(Letters.Count))
+                        {
+                            syllableId++;
+                        }
                     }
                 }
             }
@@ -101,6 +107,22 @@ namespace Chiron.Models
             }
 
             _phonsyll = WordWithoutSilentLetters();
+        }
+
+        private List<int> GetSyllableRanks()
+        {
+            List<int> syllableRanks = new List<int>();
+            int rankInOrthoSyll = 0;
+            while (rankInOrthoSyll < OrthoSyll?.Length)
+            {
+                if (OrthoSyll.Substring(rankInOrthoSyll).StartsWith("-"))
+                {
+                    syllableRanks.Add(rankInOrthoSyll - syllableRanks.Count);
+                }
+                rankInOrthoSyll++;
+            }
+
+            return syllableRanks;
         }
 
         private string WordWithoutSilentLetters()
@@ -133,6 +155,7 @@ namespace Chiron.Models
         {
             AutoMap(CultureInfo.InvariantCulture);
             Map(m => m.phonosyll).Ignore();
+            Map(m => m.Error).Ignore();
         }
     }
 }
