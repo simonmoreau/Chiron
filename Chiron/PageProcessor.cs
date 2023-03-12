@@ -19,7 +19,6 @@ namespace Chiron
             _configuration = configuration;
             Pages = new List<Page>();
             _phonemes = new List<Phoneme>();
-
         }
 
         public void LoadAvailablePhonemes()

@@ -104,7 +104,25 @@ namespace Chiron.Models
             CheckEndingE("es", 2);
             CheckEndingE("e", 1);
 
+            FixDoubleLetters();
+
             _phonsyll = WordWithoutSilentLetters();
+        }
+
+        private void FixDoubleLetters()
+        {
+
+            for (int i = 1; i < Letters.Count; i++)
+            {
+                Letter letter = Letters[i];
+                Letter previousLetter = Letters[i-1];
+
+                if (letter.Text == previousLetter.Text && letter.SyllableId != previousLetter.SyllableId)
+                {
+                    previousLetter.IsSilent = true;
+                    letter.IsSilent = false;
+                }
+            }
         }
 
         private void CheckEndingE(string endString, int rankFromLast)
