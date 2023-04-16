@@ -1,3 +1,5 @@
+using Chiron.Utils;
+
 namespace Chiron.Models
 {
     public class Page
@@ -15,5 +17,30 @@ namespace Chiron.Models
         public List<Phoneme> AvailableSyllables { get; set; }
         public List<Mot> AvailableMots { get; set; }
 
+        public List<string> RandomSyllabes
+        {
+            get { return PickSyllables(); }
+        }
+
+        private List<string> PickSyllables()
+        {
+            List<string> syllabes = new List<string>();
+
+            RandomWeightedPicker<Phoneme> availablePhoneme = new RandomWeightedPicker<Phoneme>(AvailableSyllables);
+
+            int lenght = 0;
+
+            while (lenght < 20)
+            {
+                Phoneme phoneme = availablePhoneme.PickAnItem();
+                if (syllabes.LastOrDefault() != phoneme.Name)
+                {
+                    syllabes.Add(phoneme.Name);
+                    lenght = lenght + phoneme.Name.Length;
+                }
+            }
+
+            return syllabes;
+        }
     }
 }

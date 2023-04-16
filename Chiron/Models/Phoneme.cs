@@ -1,6 +1,8 @@
+using Chiron.Utils;
+
 namespace Chiron.Models
 {
-    public class Phoneme
+    public class Phoneme : IWeighted
     {
         public Phoneme()
         {
@@ -35,6 +37,11 @@ namespace Chiron.Models
                 variations.Add(Name);
                 return variations;
             }
+        }
+
+        public int Weight
+        {
+            get {return Page;}
         }
 
         public override string ToString()

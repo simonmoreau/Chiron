@@ -4,6 +4,7 @@ using System.Text;
 using Chiron.Models;
 using CsvHelper;
 using CsvHelper.Configuration;
+using Fluid;
 using Microsoft.Extensions.Configuration;
 
 namespace Chiron
@@ -35,17 +36,57 @@ namespace Chiron
             }
         }
 
-        public void ProcessPages()
+        public void WritePages()
+        {
+            FluidParser parser = new FluidParser();
+
+            string templateFolder = _configuration.GetSection("templateFolder").Get<string>() ?? "";
+
+            string source = File.ReadAllText(Path.Combine(templateFolder, "index-template.html"));
+            ProcessPages();
+            object model = new { pages = Pages };
+
+            if (parser.TryParse(source, out IFluidTemplate? template, out string? error))
+            {
+                TemplateOptions options = new TemplateOptions();
+                options.MemberAccessStrategy = new UnsafeMemberAccessStrategy();
+
+                TemplateContext context = new TemplateContext(model,options);
+
+                string outputFolder = _configuration.GetSection("outputFolder").Get<string>() ?? "";
+                string outputFile = Path.Combine(outputFolder, "Syllabes", "index.html");
+                File.WriteAllText(outputFile, template.Render(context));
+            }
+            else
+            {
+                Console.WriteLine($"Error: {error}");
+            }
+        }
+
+        private void ProcessPages()
         {
             
-            int[] pageNumbers = { 17, 18, 21, 22, 26, 27, 28, 29, 30, 32, 35, 36, 37, 38, 39, 40 };
+            List<int> pageNumbers = _phonemes.Select(p => p.Page).Distinct().ToList();
 
+            for (int i = 0; i < pageNumbers.Count;)
+            {
+                if (pageNumbers[i] < 17)
+                {
+                    pageNumbers.RemoveAt(i);
+                }
+                else
+                {
+                    break;
+                }
+                
+            }
+
+            Pages.Clear();
             foreach (int pageNumber in pageNumbers)
             {
                 Pages.Add(GetAvailableSylables(_phonemes, pageNumber));
             }
         }
-
         private Page GetAvailableSylables(List<Phoneme> phonemes, int pageNumber)
         {
             Page page = new Page();
