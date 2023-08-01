@@ -86,6 +86,8 @@ namespace Chiron
             {
                 Pages.Add(GetAvailableSylables(_phonemes, pageNumber));
             }
+
+            
         }
         private Page GetAvailableSylables(List<Phoneme> phonemes, int pageNumber)
         {
