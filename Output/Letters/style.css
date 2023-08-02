@@ -1,0 +1,84 @@
+body {
+    background: rgb(204,204,204); 
+  }
+  page {
+    background: white;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 0.5cm;
+    box-shadow: 0 0 0.5cm rgba(0,0,0,0.5);
+  }
+  page[size="A4"] {  
+    width: 210mm;
+    height: 297mm;
+    padding: 2cm;
+  }
+  @media print {
+    html, body {
+      width: 210mm;
+      height: 297mm;
+    }
+    page {
+      margin: 0;
+      border: initial;
+      border-radius: initial;
+      width: initial;
+      min-height: initial;
+      box-shadow: initial;
+      background: initial;
+      page-break-after: always;
+    }
+  }
+
+  @font-face {
+    font-family: BelleAllureCE;
+    src: url("./fonts/BelleAllureCM-Gros.otf") format("opentype");
+  }
+
+  @font-face {
+    font-family: BelleAllureScript;
+    src: url("./fonts/BelleAllureScript3i-Gros.otf") format("opentype");
+  }
+
+  * {
+    font-family: BelleAllureScript;
+  }
+
+  .writing {
+    text-align: justify;
+    display: flow-root;
+    text-align-last: justify;
+    font-size: 100px;
+  }
+
+  .cursive {
+    font-family: BelleAllureCE;
+    color: #D95D9D;
+  }
+
+  .row {
+    margin-top: 0rem;
+  }
+
+  .line {
+    position: relative;
+    border-top: dashed red;
+  }
+
+  .baseline {
+    top: -0.9em;
+  }
+
+  .capHeight {
+    top: -1.8em;
+  }
+
+  .median {
+    top: -1.36em;
+  }
+
+  .descender {
+    top: -0.15em;
+  }
+
+

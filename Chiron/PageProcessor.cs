@@ -51,7 +51,7 @@ namespace Chiron
                 TemplateOptions options = new TemplateOptions();
                 options.MemberAccessStrategy = new UnsafeMemberAccessStrategy();
 
-                TemplateContext context = new TemplateContext(model,options);
+                TemplateContext context = new TemplateContext(model, options);
 
                 string outputFolder = _configuration.GetSection("outputFolder").Get<string>() ?? "";
                 string outputFile = Path.Combine(outputFolder, "Syllabes", "index.html");
@@ -63,9 +63,38 @@ namespace Chiron
             }
         }
 
+        public void WriteWritingPages()
+        {
+            FluidParser parser = new FluidParser();
+
+            string templateFolder = _configuration.GetSection("templateFolder").Get<string>() ?? "";
+
+            string source = File.ReadAllText(Path.Combine(templateFolder, "writing-template.html"));
+
+            string[] letters = {"a","c","d","q"};
+            List<WritingPage> writingPages = letters.Select(l => new WritingPage(l)).ToList();
+            object model = new { pages = writingPages };
+
+            if (parser.TryParse(source, out IFluidTemplate? template, out string? error))
+            {
+                TemplateOptions options = new TemplateOptions();
+                options.MemberAccessStrategy = new UnsafeMemberAccessStrategy();
+
+                TemplateContext context = new TemplateContext(model, options);
+
+                string outputFolder = _configuration.GetSection("outputFolder").Get<string>() ?? "";
+                string outputFile = Path.Combine(outputFolder, "Letters", "index.html");
+                File.WriteAllText(outputFile, template.Render(context));
+            }
+            else
+            {
+                Console.WriteLine($"Error: {error}");
+            }
+        }
+
         private void ProcessPages()
         {
-            
+
             List<int> pageNumbers = _phonemes.Select(p => p.Page).Distinct().ToList();
 
             for (int i = 0; i < pageNumbers.Count;)
@@ -78,7 +107,7 @@ namespace Chiron
                 {
                     break;
                 }
-                
+
             }
 
             Pages.Clear();
@@ -87,7 +116,7 @@ namespace Chiron
                 Pages.Add(GetAvailableSylables(_phonemes, pageNumber));
             }
 
-            
+
         }
         private Page GetAvailableSylables(List<Phoneme> phonemes, int pageNumber)
         {

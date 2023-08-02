@@ -45,6 +45,9 @@ namespace Chiron
                         case "5":
                             pageProcessor.WritePages();
                             break;
+                        case "6":
+                            pageProcessor.WriteWritingPages();
+                            break;
                         case "help":
                             PrintCommands();
                             break;
