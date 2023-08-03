@@ -36,6 +36,16 @@ body {
   }
 
   @font-face {
+    font-family: BelleAllureCE-Fin;
+    src: url("./fonts/BelleAllureCM-Fin.otf") format("opentype");
+  }
+
+  @font-face {
+    font-family: BelleAllureDuctus-Normal;
+    src: url("./fonts/BelleAllureDuctus-Normal.otf") format("opentype");
+  }
+
+  @font-face {
     font-family: BelleAllureScript;
     src: url("./fonts/BelleAllureScript3i-Gros.otf") format("opentype");
   }
@@ -47,22 +57,26 @@ body {
   .writing {
     text-align: justify;
     display: flow-root;
-    text-align-last: justify;
+    text-align-last: left;
     font-size: 100px;
+    margin-bottom: -1em;
   }
 
   .cursive {
-    font-family: BelleAllureCE;
+    font-family: BelleAllureDuctus-Normal;
     color: #D95D9D;
   }
 
+  
+
   .row {
-    margin-top: 0rem;
+    margin-top: 2rem;
   }
 
   .line {
     position: relative;
-    border-top: dashed red;
+    border-top: dashed #D95D9D;
+    border-width: 1.5px;
   }
 
   .baseline {

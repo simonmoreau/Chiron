@@ -72,6 +72,7 @@ namespace Chiron
             string source = File.ReadAllText(Path.Combine(templateFolder, "writing-template.html"));
 
             string[] letters = {"a","c","d","q"};
+
             List<WritingPage> writingPages = letters.Select(l => new WritingPage(l)).ToList();
             object model = new { pages = writingPages };
 

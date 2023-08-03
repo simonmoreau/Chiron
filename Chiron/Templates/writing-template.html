@@ -15,16 +15,15 @@
     {% for writingPage in pages %}
     <page size="A4">
       <h1>{{ writingPage.Letter }}</h1>
-      {% for line in writingPage.Lines %}
+      {% for letter in writingPage.Lines %}
       <div class="row">
-        <div class="writing cursive">
-          {% for letter in line %}
-            {{ letter }}
-          {% endfor %}
+        <div class="writing">
+          <span class="cursive">{{ letter }}</span>
+          <span class="cursive" style="opacity: 0.2;">{{ letter }}</span>
           <div class="line baseline"></div>
           <div class="line median"></div>
-          <div class="line capHeight"></div>
-          <div class="line descender"></div>
+          {% if writingPage.CapHeight %}<div class="line capHeight"></div>{% endif %}
+          {% if writingPage.Descender %}<div class="line descender"></div>{% endif %}
         </div>
       </div>
       {% endfor %}
