@@ -22,6 +22,7 @@
           <span class="cursive" style="opacity: 0.2;">{{ letter }}</span>
           <div class="line baseline"></div>
           <div class="line median"></div>
+          {% if writingPage.BigCapHeight %}<div class="line bigCapHeight"></div>{% endif %}
           {% if writingPage.CapHeight %}<div class="line capHeight"></div>{% endif %}
           {% if writingPage.Descender %}<div class="line descender"></div>{% endif %}
         </div>

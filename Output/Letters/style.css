@@ -58,7 +58,7 @@ body {
     text-align: justify;
     display: flow-root;
     text-align-last: left;
-    font-size: 100px;
+    font-size: 150px;
     margin-bottom: -1em;
   }
 
@@ -70,12 +70,12 @@ body {
   
 
   .row {
-    margin-top: 2rem;
+    margin-bottom: 4rem;
   }
 
   .line {
     position: relative;
-    border-top: dashed #D95D9D;
+    border-top: dashed #676767;
     border-width: 1.5px;
   }
 
@@ -87,6 +87,10 @@ body {
     top: -1.8em;
   }
 
+  .bigCapHeight {
+    top: -2.15em;
+  }
+  
   .median {
     top: -1.36em;
   }

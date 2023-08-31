@@ -32,7 +32,14 @@ namespace Chiron.Models
                     Descender = false;
                     break;
                 case "d":
+                case "t":
                     CapHeight = true;
+                    Descender = false;
+                    break;
+                case "b":
+                case "l":
+                    BigCapHeight = true;
+                    CapHeight = false;
                     Descender = false;
                     break;
                 case "q":
@@ -40,6 +47,8 @@ namespace Chiron.Models
                     Descender = true;
                     break;
                 default:
+                    CapHeight = false;
+                    Descender = false;
                     break;
 
             }
@@ -49,6 +58,7 @@ namespace Chiron.Models
         public string Letter { get; set; }
         public bool Consonne { get; set; }
         public bool CapHeight { get; set; }
+        public bool BigCapHeight { get; set; }
         public bool Descender { get; set; }
     }
 }
