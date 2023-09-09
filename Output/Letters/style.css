@@ -51,52 +51,58 @@ body {
   }
 
   * {
-    font-family: BelleAllureScript;
+    font-family: BelleAllureDuctus-Normal;
+    font-size: calc(3mm * 3);
+    print-color-adjust: exact; 
+    -webkit-print-color-adjust: exact; 
   }
 
-  .writing {
-    text-align: justify;
-    display: flow-root;
-    text-align-last: left;
-    font-size: 150px;
-    margin-bottom: -1em;
+  .row {
+    margin-bottom: -5ex;
+  }
+  
+  .letter-line {
+    height: calc(1ex*5);
+    width: 100%;
+    position: relative;
+    z-index: 10;
+  }
+
+  .letter-line::before {
+    display: inline-block;
+    height: 100%;
+    content: '';
   }
 
   .cursive {
-    font-family: BelleAllureDuctus-Normal;
-    color: #D95D9D;
+    vertical-align: baseline;
+    color: #D95D9D;    
   }
 
-  
-
-  .row {
-    margin-bottom: 4rem;
+  .lines {
+    position: relative;
+    top: calc(-1ex*6);
   }
 
   .line {
-    position: relative;
     border-top: dashed #676767;
-    border-width: 1.5px;
+    border-width: 1px;
+    margin-top: -1px;
+    margin-bottom: -1px;
+    height: 1ex;
   }
 
-  .baseline {
-    top: -0.9em;
+  .purple{
+    background-color: #e8e7f8;
   }
 
-  .capHeight {
-    top: -1.8em;
+  .blue{
+    background-color: #f1f5fc;
   }
 
-  .bigCapHeight {
-    top: -2.15em;
-  }
-  
-  .median {
-    top: -1.36em;
+  .white{
+    background-color: #ffffff;
   }
 
-  .descender {
-    top: -0.15em;
-  }
 
 

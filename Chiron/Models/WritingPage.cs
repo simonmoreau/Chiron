@@ -8,7 +8,7 @@ namespace Chiron.Models
 
         public WritingPage(string letter)
         {
-            _numberOfLines = 4;
+            _numberOfLines = 8;
             _numberOfLetters = 1;
 
             Letter = letter;

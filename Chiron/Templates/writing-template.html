@@ -17,14 +17,19 @@
       <h1>{{ writingPage.Letter }}</h1>
       {% for letter in writingPage.Lines %}
       <div class="row">
-        <div class="writing">
+        <div class="letter-line">
           <span class="cursive">{{ letter }}</span>
           <span class="cursive" style="opacity: 0.2;">{{ letter }}</span>
-          <div class="line baseline"></div>
-          <div class="line median"></div>
-          {% if writingPage.BigCapHeight %}<div class="line bigCapHeight"></div>{% endif %}
-          {% if writingPage.CapHeight %}<div class="line capHeight"></div>{% endif %}
-          {% if writingPage.Descender %}<div class="line descender"></div>{% endif %}
+        </div>
+        <div class="lines">
+          <div class="line white"></div>
+          <div class="line white"></div>
+          <div class="line white"></div>
+          <div class="line blue"></div>
+          <div class="line blue"></div>
+          <div class="line purple"></div>
+          <div class="line blue"></div>
+          <div class="line blue"></div>
         </div>
       </div>
       {% endfor %}
