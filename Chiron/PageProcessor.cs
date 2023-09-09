@@ -71,7 +71,7 @@ namespace Chiron
 
             string source = File.ReadAllText(Path.Combine(templateFolder, "writing-template.html"));
 
-            string[] noms = {"blandine", "constance"};
+            string[] noms = {"0123456789","blandine", "constance",};
             List<string> letters = new List<string>();
 
             foreach (string nom in noms)
