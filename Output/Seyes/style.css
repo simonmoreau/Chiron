@@ -87,7 +87,7 @@ page[size="A4"] {
 
 .lines {
   position: relative;
-  top: calc(-1ex*4 - 1px);
+  top: calc(-1ex*4 - 2px);
 }
 
 .line {
