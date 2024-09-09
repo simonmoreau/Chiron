@@ -150,5 +150,38 @@ namespace Chiron
 
             return page;
         }
+
+        internal void WriteSeyesPages()
+        {
+            FluidParser parser = new FluidParser();
+
+            string templateFolder = _configuration.GetSection("templateFolder").Get<string>() ?? "";
+
+            string source = File.ReadAllText(Path.Combine(templateFolder, "seyes-template.html"));
+
+            string[] letters = {"1","4","7","", "2","3","5","","0","6","8","9",""};
+            string title = "Reconnaître  et écrire les chiffres";
+
+            List<WritingPage> writingPages = new List<WritingPage>() { new WritingPage(letters.ToList(),title)};
+            
+             letters.Select(l => new WritingPage(l)).ToList();
+            object model = new { pages = writingPages };
+
+            if (parser.TryParse(source, out IFluidTemplate? template, out string? error))
+            {
+                TemplateOptions options = new TemplateOptions();
+                options.MemberAccessStrategy = new UnsafeMemberAccessStrategy();
+
+                TemplateContext context = new TemplateContext(model, options);
+
+                string outputFolder = _configuration.GetSection("outputFolder").Get<string>() ?? "";
+                string outputFile = Path.Combine(outputFolder, "Seyes", "index.html");
+                File.WriteAllText(outputFile, template.Render(context));
+            }
+            else
+            {
+                Console.WriteLine($"Error: {error}");
+            }
+        }
     }
 }

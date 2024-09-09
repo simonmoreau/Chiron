@@ -48,6 +48,9 @@ namespace Chiron
                         case "6":
                             pageProcessor.WriteWritingPages();
                             break;
+                        case "7":
+                            pageProcessor.WriteSeyesPages();
+                            break;
                         case "help":
                             PrintCommands();
                             break;
@@ -83,6 +86,8 @@ namespace Chiron
             Console.WriteLine("[3]      Shorten Lexicon");
             Console.WriteLine("[4]      Load available phonèmes");
             Console.WriteLine("[5]      Print Phonèmes");
+            Console.WriteLine("[6]      Print Writing Page");
+            Console.WriteLine("[7]      Print Seyes Page");
             // Console.WriteLine("[6]      Create users (bulk import)");
             // Console.WriteLine("[7]      Create user with custom attributes and show result");
             // Console.WriteLine("[8]      Get all users (one page) with custom attributes");

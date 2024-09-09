@@ -1,0 +1,111 @@
+body {
+  background: transparent;
+}
+
+page {
+  background: white;
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 0.5cm;
+  box-shadow: 0 0 0.5cm rgba(0, 0, 0, 0.5);
+}
+
+page[size="A4"] {
+  width: 210mm;
+  height: 297mm;
+  padding: 2cm;
+}
+
+@media print {
+
+  html,
+  body {
+    width: 210mm;
+    height: 297mm;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  page {
+    margin: 0;
+    border: initial;
+    border-radius: initial;
+    width: initial;
+    min-height: initial;
+    box-shadow: initial;
+    background: initial;
+    page-break-after: always;
+  }
+}
+
+@font-face {
+  font-family: BelleAllureCE;
+  src: url("./fonts/BelleAllureCM-Gros.otf") format("opentype");
+}
+
+@font-face {
+  font-family: BelleAllureCE-Fin;
+  src: url("./fonts/BelleAllureCM-Fin.otf") format("opentype");
+}
+
+@font-face {
+  font-family: BelleAllureDuctus-Normal;
+  src: url("./fonts/BelleAllureDuctus-Normal.otf") format("opentype");
+}
+
+@font-face {
+  font-family: BelleAllureScript;
+  src: url("./fonts/BelleAllureScript3i-Gros.otf") format("opentype");
+}
+
+* {
+  font-family: BelleAllureCE;
+  font-size: calc(2mm * 3);
+}
+
+.row {
+  margin-bottom: -5ex;
+}
+
+.letter-line {
+  height: calc(1ex*5);
+  width: 100%;
+  position: relative;
+  z-index: 10;
+}
+
+.letter-line::before {
+  display: inline-block;
+  height: 100%;
+  content: '';
+}
+
+.cursive {
+  vertical-align: baseline;
+  color: black;
+}
+
+.lines {
+  position: relative;
+  top: calc(-1ex*4 - 1px);
+}
+
+.line {
+  border-bottom: dashed #676767;
+  border-width: 1px;
+  height: 1ex;
+}
+
+.purple {
+  background-color: #e8e7f8;
+}
+
+.blue {
+  background-color: #f1f5fc;
+  border-bottom: solid #4b6ba2;
+  border-width: 1px;
+}
+
+.white {
+  background-color: #ffffff;
+}

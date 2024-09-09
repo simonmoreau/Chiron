@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Syllabes</title>
+  <link rel="stylesheet" href="./style.css">
+  <link rel="icon" href="./favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+  <main>
+    {% for writingPage in pages %}
+    <page size="A4">
+      <h1>{{ writingPage.Letter }}</h1>
+      {% for letter in writingPage.Lines %}
+      <div class="row">
+        <div class="letter-line">
+          <span class="cursive">{{ letter }}</span>
+        </div>
+        <div class="lines">
+          <div class="line white"></div>
+          <div class="line white"></div>
+          <div class="line white"></div>
+          <div class="line blue"></div>
+        </div>
+      </div>
+      {% endfor %}
+    </page>
+    {% endfor %}
+  </main>
+  <script src="index.js"></script>
+</body>
+
+</html>

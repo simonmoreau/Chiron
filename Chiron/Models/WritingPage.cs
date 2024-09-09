@@ -19,6 +19,14 @@ namespace Chiron.Models
             // Enumerable.Range(0, count)
         }
 
+        public WritingPage(List<string> lines, string title)
+        {
+            Letter = title;
+            Lines = lines;
+
+            // Enumerable.Range(0, count)
+        }
+
         public void SetDimensions(string letter)
         {
             switch (letter)
