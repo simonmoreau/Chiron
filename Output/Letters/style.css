@@ -52,7 +52,7 @@ body {
 
   * {
     font-family: BelleAllureDuctus-Normal;
-    font-size: calc(3mm * 3);
+    font-size: calc(4mm * 3);
     print-color-adjust: exact; 
     -webkit-print-color-adjust: exact; 
   }
